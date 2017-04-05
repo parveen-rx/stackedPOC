@@ -1,0 +1,84 @@
+<!--
+* Created by Parveen on 4/4/2017.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table POC</title>
+    <link href="./assests/ext/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="./assests/ext/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
+    <link href="./assests/int/css/main.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Horizontal Table POC</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="#"><i class="fa fa-gear"></i> Setting</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <h3 class="text-center" style="font-weight: 600">Horizontal Table</h3>
+    <div id="mainTable">
+        <div id="columnHeaderContainer"></div>
+        <div id="columnDataContainer"></div>
+    </div>
+</div>
+
+<!--horizontal stacked data table headers-->
+<script type="text/x-handlebars-template" id="tableHeaders">
+    {{#each list}}
+        {{#rowCondition @index 3}}
+                <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 tableColumnHeader sortColumn" colPositionAttr="{{@index}}">
+                        {{this}}
+                    <i class="fa fa-sort-desc iconColumnHeader"></i>
+                </div>
+        {{else}}
+                <div class="col-xs-4 col-sm-4 col-md-4 tableColumnHeader sortColumn" colPositionAttr="{{@index}}">
+                    {{this}}
+                    <i class="fa fa-sort-desc iconColumnHeader"></i>
+                </div>
+                {{#colCondition @index 3}}
+                     </div>
+                {{/colCondition}}
+        {{/rowCondition}}
+    {{/each}}
+</script>
+
+<!--horizontal stacked data table column value-->
+<script type="text/x-handlebars-template" id="tableHeadersValue">
+    {{#each listData}}
+    <br>
+            {{#each this}}
+                {{#rowCondition @index 3}}
+                     <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 tableColumnValue" dataPositionAttr="{{@../index}}-{{@index}}">
+                            {{{this}}}
+                        </div>
+                 {{else}}
+                         <div class="col-xs-4 col-sm-4 col-md-4 tableColumnValue" dataPositionAttr="{{@../index}}-{{@index}}">
+                             {{this}}
+                         </div>
+                         {{#colCondition @index 3}}
+                                </div>
+                         {{/colCondition}}
+                {{/rowCondition}}
+            {{/each}}
+        </div>
+    {{/each}}
+</script>
+
+<script src="./assests/ext/js/jquery-1.12.1.min.js"></script>
+<script src="./assests/ext/js/bootstrap.min.js"></script>
+<script src="./assests/ext/js/handlebars-v4.0.5.js"></script>
+<script src="./assests/int/js/util.js"></script>
+<script src="./assests/int/js/index.js"></script>
+</body>
+</html>

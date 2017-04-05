@@ -1,0 +1,38 @@
+/**
+ * Created by Parveen on 4/5/2017.
+ */
+
+.tableColumnHeader
+{
+    padding: 10px 10px 10px 15px;
+    background: #efefef;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #673AB7;
+}
+
+.iconColumnHeader
+{
+    float: right;
+}
+
+.tableColumnValue
+{
+    padding: 10px 10px 10px 15px;
+    background: #cecece;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #b70077;
+}
+
+.sortColumn
+{
+    cursor: pointer;
+}
+
+.sortColumn:hover
+{
+    background: #9E9E9E;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
